@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Ex_22_23_AAD_Marzo</string>
+    <string name="label_delete_login">Eliminar datos de login</string>
+    <string name="label_delete_animal">Eliminar Animales</string>
+    <string name="label_save_establishment">Guardar Establecimiento Random</string>
+</resources>
