@@ -1,10 +1,19 @@
 package com.iesam.ex_22_23_aad_marzo.feature
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.calcomanias_rocket.app.serialization.GsonSerialization
+import com.example.calcomanias_rocket.app.serialization.JsonSerialization
+import com.google.gson.Gson
 import com.iesam.ex_22_23_aad_marzo.R
+import com.iesam.ex_22_23_aad_marzo.feature.login.data.LoginDataRepository
+import com.iesam.ex_22_23_aad_marzo.feature.login.data.LoginXmlLocalDataSource
+import com.iesam.ex_22_23_aad_marzo.feature.login.domain.User
 import kotlin.concurrent.thread
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +38,14 @@ class MainActivity : AppCompatActivity() {
 
         //Llamar al repositorio
         //LoginRepository loginRepository = ...
+        val user = User(email, password)
+
+        val loginDataRepository: LoginDataRepository = LoginDataRepository(LoginXmlLocalDataSource(
+            this@MainActivity,
+            GsonSerialization(Gson()
+        )))
+        loginDataRepository.getLogin(user)
+        loginDataRepository.deleteLogin()
     }
 
     private fun deleteLogin() {
