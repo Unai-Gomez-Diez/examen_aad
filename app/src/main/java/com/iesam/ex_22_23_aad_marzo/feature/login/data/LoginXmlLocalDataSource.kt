@@ -29,6 +29,6 @@ class LoginXmlLocalDataSource(
     }
 
     override fun deleteLogin() {
-        sharedPref?.edit()?.clear()
+        sharedPref?.edit()?.clear()?.apply()
     }
 }

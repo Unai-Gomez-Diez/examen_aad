@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         initAnimals()
         initAnimalDetail(1)
         initOffers()
+
     }
+
 
     private fun initLogin() {
         val email = "example@email.es"
@@ -40,16 +42,22 @@ class MainActivity : AppCompatActivity() {
         //LoginRepository loginRepository = ...
         val user = User(email, password)
 
-        val loginDataRepository: LoginDataRepository = LoginDataRepository(LoginXmlLocalDataSource(
+        val loginDataRepository: LoginDataRepository = LoginDataRepository(
+            LoginXmlLocalDataSource(
             this@MainActivity,
             GsonSerialization(Gson()
         )))
         loginDataRepository.getLogin(user)
-        loginDataRepository.deleteLogin()
+
     }
 
     private fun deleteLogin() {
-        //Eliminar datos del login.
+        val loginDataRepository: LoginDataRepository = LoginDataRepository(
+            LoginXmlLocalDataSource(
+                this@MainActivity,
+                GsonSerialization(Gson()
+                )))
+        loginDataRepository.deleteLogin()
     }
 
     private fun initAnimals() {
