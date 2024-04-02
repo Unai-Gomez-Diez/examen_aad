@@ -8,7 +8,7 @@ class AnimalDataRepository(
     private val animalDbLocalDataSource: AnimalDbLocalDataSource,
     private val animalRemoteDataSource: AnimalRemoteDataSource
 ){
-    suspend fun getAnimals():List<Animal>{
+    fun getAnimals():List<Animal>{
         val listAnimals = animalDbLocalDataSource.getAnimals()
         return if(listAnimals.isEmpty()){
             animalDbLocalDataSource.deleteAnimals()
