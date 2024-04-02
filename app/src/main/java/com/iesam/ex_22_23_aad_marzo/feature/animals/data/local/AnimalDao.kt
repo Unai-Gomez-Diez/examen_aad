@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.iesam.ex_22_23_aad_marzo.feature.animals.domain.Animal
 
+
 @Dao
 interface AnimalDao {
     @Query("SELECT * FROM animal")

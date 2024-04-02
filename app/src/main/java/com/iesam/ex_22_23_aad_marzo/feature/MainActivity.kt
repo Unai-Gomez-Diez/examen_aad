@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.iesam.ex_22_23_aad_marzo.R
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.AnimalDataRepository
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.local.AnimalDao
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.local.AnimalDbLocalDataSource
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.remote.AnimalRemoteDataSource
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +41,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initAnimals() {
         thread {
-            //Ejecutar código para obtener animales
+            val animalDataRepository: AnimalDataRepository = AnimalDataRepository(
+                AnimalDbLocalDataSource(AnimalDao),
+                AnimalRemoteDataSource()
+                )
         }
     }
 
