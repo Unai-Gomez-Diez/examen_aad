@@ -1,7 +1,7 @@
 package com.iesam.ex_22_23_aad_marzo.feature.login.data
 
 import android.content.Context
-import com.example.calcomanias_rocket.app.serialization.JsonSerialization
+import com.iesam.ex_22_23_aad_marzo.feature.app.serialization.JsonSerialization
 import com.iesam.ex_22_23_aad_marzo.feature.login.domain.User
 
 class LoginXmlLocalDataSource(

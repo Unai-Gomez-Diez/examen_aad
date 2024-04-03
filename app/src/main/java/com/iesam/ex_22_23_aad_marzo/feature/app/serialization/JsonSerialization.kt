@@ -1,4 +1,4 @@
-package com.example.calcomanias_rocket.app.serialization
+package com.iesam.ex_22_23_aad_marzo.feature.app.serialization
 
 interface JsonSerialization {
     fun <T> toJson(obj: T, typeClass: Class<T>): String

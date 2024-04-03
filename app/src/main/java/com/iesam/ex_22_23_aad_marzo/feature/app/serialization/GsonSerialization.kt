@@ -1,4 +1,4 @@
-package com.example.calcomanias_rocket.app.serialization
+package com.iesam.ex_22_23_aad_marzo.feature.app.serialization
 
 import com.google.gson.Gson
 
