@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.iesam.ex_22_23_aad_marzo.R
+import com.iesam.ex_22_23_aad_marzo.feature.offers.data.remote.OffersDbRemoteModel
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initOffers() {
         thread {
-            //Hacer la llamada al repositorio desde aquí.
+            OffersDbRemoteModel
         }
     }
 }
