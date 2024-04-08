@@ -10,7 +10,7 @@ class AnimalRemoteDataSource {
         Animal(2, "Dino", AnimalType("Perro")),
         Animal(3, "Bambam", AnimalType("Perro")),
         Animal(4, "Tango", AnimalType("Perro")),
-        Animal(4, "Git", AnimalType("Gato"))
+        Animal(5, "Git", AnimalType("Gato"))
     )
 
     fun getAnimals(): List<Animal> = mockAnimals

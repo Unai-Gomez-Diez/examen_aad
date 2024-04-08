@@ -4,15 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.iesam.ex_22_23_aad_marzo.feature.animals.data.local.AnimalDao
 import com.iesam.ex_22_23_aad_marzo.feature.animals.data.local.AnimalEntity
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.local.AnimalTypeConverter
 
 @Database(
 
     entities = [AnimalEntity::class],
-    version = 4,
+    version = 1,
     exportSchema = false
 )
+@TypeConverters(AnimalTypeConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun animalDao(): AnimalDao
 
@@ -26,7 +29,7 @@ abstract class AppDatabase: RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                ).addTypeConverter(AnimalTypeConverter()).build()
                 INSTANCE = instance
                 instance
             }

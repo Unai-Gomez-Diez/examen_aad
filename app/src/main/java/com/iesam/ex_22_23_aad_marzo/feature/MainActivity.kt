@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
             deleteLogin()
         }
         findViewById<Button?>(R.id.action_delete_animals).setOnClickListener {
-            deleteAnimals()
+            deleteAnimals(this)
         }
         initLogin()
         initAnimals(this)
-        initAnimalDetail(1)
+        initAnimalDetail(1, this)
         initOffers()
     }
 
@@ -59,15 +59,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initAnimalDetail(animalId: Int) {
+    private fun initAnimalDetail(animalId: Int, context: Context) {
         thread {
-            //Ejecutar código para obtener un animal en concreto
+            val animalDataRepository = AnimalDataRepository(
+                AnimalDbLocalDataSource(AppDatabase.getInstance(context).animalDao()),
+                AnimalRemoteDataSource()
+            )
+
+            animalDataRepository.getAnimal(animalId)
         }
     }
 
-    private fun deleteAnimals() {
+    private fun deleteAnimals(context: Context) {
         thread {
-            //Elimino los animales de local..
+            val animalDataRepository = AnimalDataRepository(
+                AnimalDbLocalDataSource(AppDatabase.getInstance(context).animalDao()),
+                AnimalRemoteDataSource()
+            )
+
+            animalDataRepository.deleteAnimal()
         }
     }
 
