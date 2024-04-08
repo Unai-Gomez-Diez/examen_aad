@@ -3,8 +3,14 @@ package com.iesam.ex_22_23_aad_marzo.feature
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 import com.iesam.ex_22_23_aad_marzo.R
+import com.iesam.ex_22_23_aad_marzo.feature.animals.data.remote.AnimalRemoteDataSource
+import com.iesam.ex_22_23_aad_marzo.feature.offers.data.remote.OfferDbRemoteDataSource
 import com.iesam.ex_22_23_aad_marzo.feature.offers.data.remote.OffersDbRemoteModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -56,7 +62,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initOffers() {
         thread {
-            OffersDbRemoteModel
+            val offersDbRemoteDataSource = OfferDbRemoteDataSource(FirebaseDatabase.getInstance())
+            GlobalScope.launch(Dispatchers.IO) {
+                offersDbRemoteDataSource.obtainOffers()
+            }
         }
     }
 }
