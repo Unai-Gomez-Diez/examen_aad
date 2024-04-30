@@ -21,7 +21,7 @@ class AnimalDataRepository(
         }
     }
 
-    fun getAnimal(id: Int): Animal{
+    fun getAnimal(id: Int): Animal?{
         val animal = animalDbLocalDataSource.getAnimal(id)
         Log.d("@dev", animal.toString() )
         return animal

@@ -26,9 +26,9 @@ class AnimalDbLocalDataSource(private val animalDao: AnimalDao)
         animalDao.save(*entity.toTypedArray())
     }
 
-    override fun getAnimal(id: Int): Animal {
+    override fun getAnimal(id: Int): Animal? {
         val animalEntity = animalDao.getAnimalById(id)
 
-        return animalEntity?.toDomain() ?: throw NoSuchElementException("Animal not found with id: $id")
+        return animalEntity?.toDomain()
     }
 }

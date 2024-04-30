@@ -8,5 +8,5 @@ interface AnimalLocalDataSource {
 
     fun saveAnimals(animals: List<Animal>)
 
-    fun getAnimal(id: Int): Animal
+    fun getAnimal(id: Int): Animal?
 }
