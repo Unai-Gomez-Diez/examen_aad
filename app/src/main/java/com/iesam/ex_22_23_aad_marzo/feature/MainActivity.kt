@@ -1,12 +1,9 @@
 package com.iesam.ex_22_23_aad_marzo.feature
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import com.example.calcomanias_rocket.app.serialization.GsonSerialization
-import com.example.calcomanias_rocket.app.serialization.JsonSerialization
+import com.iesam.ex_22_23_aad_marzo.feature.app.serialization.GsonSerialization
 import com.google.gson.Gson
 import com.iesam.ex_22_23_aad_marzo.R
 import com.iesam.ex_22_23_aad_marzo.feature.login.data.LoginDataRepository
@@ -46,7 +43,8 @@ class MainActivity : AppCompatActivity() {
             LoginXmlLocalDataSource(
             this@MainActivity,
             GsonSerialization(Gson()
-        )))
+        )
+            ))
         loginDataRepository.getLogin(user)
 
     }
@@ -56,7 +54,8 @@ class MainActivity : AppCompatActivity() {
             LoginXmlLocalDataSource(
                 this@MainActivity,
                 GsonSerialization(Gson()
-                )))
+                )
+            ))
         loginDataRepository.deleteLogin()
     }
 
