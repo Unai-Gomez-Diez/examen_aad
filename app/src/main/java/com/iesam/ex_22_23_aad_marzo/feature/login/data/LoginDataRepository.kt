@@ -1,5 +1,6 @@
 package com.iesam.ex_22_23_aad_marzo.feature.login.data
 
+import android.util.Log
 import com.iesam.ex_22_23_aad_marzo.feature.login.domain.User
 
 class LoginDataRepository(
@@ -15,6 +16,7 @@ class LoginDataRepository(
             loginXmlLocalDataSource.setLogin(user)
             user
         } else {
+            Log.d("dev1", login.toString())
             login
         }
     }
