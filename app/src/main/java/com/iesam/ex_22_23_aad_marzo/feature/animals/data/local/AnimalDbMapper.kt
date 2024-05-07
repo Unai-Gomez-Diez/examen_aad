@@ -10,18 +10,11 @@ fun AnimalEntity.toDomain(): Animal =
         this.type
     )
 
-fun AnimalTypeEntity.toDomain(): AnimalType =
-    AnimalType(
-        this.type
-    )
+
 
 fun Animal.toEntity(): AnimalEntity =
     AnimalEntity(
         this.id,
         this.name,
-        this.type
-    )
-fun AnimalType.toEntity(): AnimalTypeEntity =
-    AnimalTypeEntity(
         this.type
     )
