@@ -14,9 +14,8 @@ class OfferDbRemoteDataSource(
             .await()
             .children.map {
                 it.getValue(OffersDbRemoteModel::class.java)!!.toDomain()
-
             }
-        Log.d("@dev", datos.toString())
+        //Log.d("@dev", datos.toString())
         return datos
     }
 }
