@@ -8,10 +8,9 @@ import kotlinx.coroutines.tasks.await
 class OfferDbRemoteDataSource(
     private val firebase: FirebaseDatabase
 ) {
-    suspend fun obtainOffers(): List<Offer>{
+    fun obtainOffers(): List<Offer>{
         val datos = firebase.getReference("")
-            .get()
-            .await()
+            .get().result
             .children.map {
                 it.getValue(OffersDbRemoteModel::class.java)!!.toDomain()
             }
